@@ -17,10 +17,12 @@ const Chatbot = () => {
         if (!userInput.trim()) return;
 
         const result = fuse.search(userInput);
+        console.log("Search result:", result); // Debugging line
+
         let botResponse = "Lo siento, no encontré información sobre eso. ¿Puedes reformular la pregunta?";
 
         if (result.length > 0) {
-            botResponse = result[0].item.respuesta;
+            botResponse = result[0].item.respuesta; // Ensure 'respuesta' key matches the data
         }
 
         setChat(prev => [

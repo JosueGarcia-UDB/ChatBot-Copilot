@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef , useEffect} from "react";
 import Fuse from "fuse.js";
 import Data from "@/app/data/data";
 import { IoSend } from "react-icons/io5";
@@ -12,6 +12,14 @@ const fuse = new Fuse(Data, {
 const Chatbot = () => {
     const [userInput, setUserInput] = useState('');
     const [chat, setChat] = useState([]);
+
+    const chatRef = useRef();
+
+    useEffect(() => {
+        if (chatRef.current) {
+            chatRef.current.scrollTop = chatRef.current.scrollHeight;
+        }
+    }, [chat]);
 
     const handleUserMessage = () => {
         if (!userInput.trim()) return;
@@ -53,7 +61,7 @@ const Chatbot = () => {
     return (
         <div>
             <h1 className="welcome-title">Bienvenido al Chatbot UDB</h1>
-            <div className="chat-placeholder">
+            <div className="chat-placeholder"  ref={chatRef}>
                 <div className="chat-bubble bot">
                     <strong>Chatbot: </strong>¡Hola! Soy el asistente virtual de la UDB. ¿En qué puedo ayudarte?
                 </div>

@@ -35,7 +35,6 @@ const Chatbot = () => {
     return (
         <div>
             <h1 className="welcome-title">Bienvenido al Chatbot UDB</h1>
-            <p className="welcome-text">Seleccione un tema en el menú lateral</p>
             <div className="chat-placeholder">
                 <div className="chat-bubble bot">
                     <strong>Chatbot: </strong>¡Hola! Soy el asistente virtual de la UDB. ¿En qué puedo ayudarte?

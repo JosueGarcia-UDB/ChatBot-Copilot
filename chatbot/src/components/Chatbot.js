@@ -34,6 +34,22 @@ const Chatbot = () => {
         setUserInput('');
     };
 
+    const renderMessage = (msg) => {
+        const urlRegex = /(https?:\/\/[^\s]+)/g;
+        const parts = msg.message.split(urlRegex).map((part, index) => {
+            if (urlRegex.test(part)) {
+                return <a key={index} href={part} target="_blank" rel="noopener noreferrer">Más información...</a>;
+            }
+            return part;
+        });
+
+        return (
+            <div key={msg.index} className={msg.role === 'user' ? 'chat-bubble user' : 'chat-bubble bot'}>
+                <strong>{msg.role === 'user' ? 'Tú: ' : 'Chatbot: '}</strong>{parts}
+            </div>
+        );
+    };
+
     return (
         <div>
             <h1 className="welcome-title">Bienvenido al Chatbot UDB</h1>
@@ -42,11 +58,7 @@ const Chatbot = () => {
                     <strong>Chatbot: </strong>¡Hola! Soy el asistente virtual de la UDB. ¿En qué puedo ayudarte?
                 </div>
                 {chat.length > 0 ? (
-                    chat.map((msg, index) => (
-                        <div key={index} className={msg.role === 'user' ? 'chat-bubble user' : 'chat-bubble bot'}>
-                            <strong>{msg.role === 'user' ? 'Tú: ' : 'Chatbot: '}</strong>{msg.message}
-                        </div>
-                    ))
+                    chat.map((msg, index) => renderMessage({ ...msg, index }))
                 ) : (
                     <p></p>
                 )}
@@ -58,7 +70,7 @@ const Chatbot = () => {
                     value={userInput}
                     onChange={(e) => setUserInput(e.target.value)}
                 />
-                <button onClick={handleUserMessage}><IoSend/></button>
+                <button onClick={handleUserMessage}><IoSend /></button>
             </div>
         </div>
     );

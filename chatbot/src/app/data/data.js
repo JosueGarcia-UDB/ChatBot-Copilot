@@ -72,7 +72,7 @@ const data = [
   {
     key: "becas",
     pregunta: "¿Cómo puedo solicitar una beca?",
-    respuesta: "Puedes solicitar una beca a través del Departamento de Becas de la Universidad Don Bosco (UDB). Visita su oficina o consulta su página web para más información: https://www.udb.edu.sv/udb/pagina/becas",
+    respuesta: "Puedes solicitar una beca a través del Departamento de Becas de la Universidad Don Bosco (UDB). Puedes coonsultar en la página web para más información: https://www.udb.edu.sv/udb/pagina/becas",
     synonyms: ["beca", "ayuda financiera", "apoyo económico", "solicitar beca", "becas universitarias"]
   },
   {

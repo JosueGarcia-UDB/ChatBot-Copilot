@@ -13,6 +13,7 @@
     "bootstrap": "^5.3.3",
     "botframework-directlinejs": "^0.15.5",
     "dialogflow": "^4.0.3",
+    "fuse.js": "^7.1.0",
     "next": "15.1.7",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",

@@ -1,18 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import Fuse from "fuse.js";
-import apoyo_estudiantil from "@/app/data/apoyo_estudiantil";
-import desarrollo_profesional from "@/app/data/desarrollo_profesional";
-import info_academica from "@/app/data/info_academica";
-import servicios_campus from "@/app/data/servicios_campus";
-import vida_estudiantil from "@/app/data/vida_estudiantil";
-import styles from "@/app/page.module.css";
+import Data from "@/app/data/data";
 
-//Aqui va a depender el Route que quiera el usuario
-//Si quisiera respuestas de informacion academica, seria
-// const fuse = new Fuse(info_academica),
-const fuse = new Fuse(servicios_campus, {
-    keys: ['key','question', 'synonyms'],
+const fuse = new Fuse(Data, {
+    keys: ['key', 'pregunta', 'synonyms'],
     threshold: 0.4
 });
 
@@ -27,7 +19,7 @@ const Chatbot = () => {
         let botResponse = "Lo siento, no encontré información sobre eso. ¿Puedes reformular la pregunta?";
 
         if (result.length > 0) {
-            botResponse = result[0].item.answer;
+            botResponse = result[0].item.respuesta;
         }
 
         setChat(prev => [
@@ -47,25 +39,25 @@ const Chatbot = () => {
                 <div className="chat-bubble bot">
                     <strong>Chatbot: </strong>¡Hola! Soy el asistente virtual de la UDB. ¿En qué puedo ayudarte?
                 </div>
-                    {chat.length > 0 ? (
-                        chat.map((msg, index) => (
-                            <div key={index} className={msg.role === 'user' ? 'chat-bubble user' : 'chat-bubble bot'}>
-                                <strong>{msg.role === 'user' ? 'Tú: ' : 'Chatbot: '}</strong>{msg.message}
-                            </div>
-                        ))
-                    ) : (
-                        <p></p>
-                    )}
+                {chat.length > 0 ? (
+                    chat.map((msg, index) => (
+                        <div key={index} className={msg.role === 'user' ? 'chat-bubble user' : 'chat-bubble bot'}>
+                            <strong>{msg.role === 'user' ? 'Tú: ' : 'Chatbot: '}</strong>{msg.message}
+                        </div>
+                    ))
+                ) : (
+                    <p></p>
+                )}
             </div>
             <div className="chat-input">
-                    <input
-                        type="text"
-                        placeholder="Escribe tu pregunta..."
-                        value={userInput}
-                        onChange={(e) => setUserInput(e.target.value)}
-                    />
-                    <button onClick={handleUserMessage}>Enviar</button>
-                </div>
+                <input
+                    type="text"
+                    placeholder="Escribe tu pregunta..."
+                    value={userInput}
+                    onChange={(e) => setUserInput(e.target.value)}
+                />
+                <button onClick={handleUserMessage}>Enviar</button>
+            </div>
         </div>
     );
 }

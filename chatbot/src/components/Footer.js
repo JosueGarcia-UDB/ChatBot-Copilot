@@ -4,16 +4,14 @@ import React from "react";
 import { FaBolt } from "react-icons/fa";
 
 const Footer = () => {
+
+  let date = new Date().getFullYear();
   return (
     <footer className="footer">
       <div className="footer-container">
-        <button className="power-button">
-          <FaBolt />
-        </button>
         <p className="copyright">
-           2025 Universidad Don Bosco - Chatbot de Soporte 
+           {date} Universidad Don Bosco - Chatbot de Soporte 
         </p>
-        <div></div> 
       </div>
     </footer>
   );

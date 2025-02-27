@@ -237,7 +237,7 @@ body {
 
 .footer-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
@@ -256,6 +256,7 @@ body {
 
 .copyright {
   font-size: 0.9rem;
+  text-align: center;
 }
 
 /* lo de responsive */

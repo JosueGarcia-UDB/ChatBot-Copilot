@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Fuse from "fuse.js";
 import Data from "@/app/data/data";
+import { IoSend } from "react-icons/io5";
 
 const fuse = new Fuse(Data, {
     keys: ['key', 'pregunta', 'synonyms'],
@@ -56,7 +57,7 @@ const Chatbot = () => {
                     value={userInput}
                     onChange={(e) => setUserInput(e.target.value)}
                 />
-                <button onClick={handleUserMessage}>Enviar</button>
+                <button onClick={handleUserMessage}><IoSend/></button>
             </div>
         </div>
     );

@@ -140,7 +140,7 @@ body {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
 }
 
 .welcome-title {
@@ -157,13 +157,13 @@ body {
 }
 
 /* apartado de chat placeholder */
-.botMsg{
+.botMsg {
   text-align: left;
   margin: 5px 0;
   color: #333;
 }
 
-.userMsg{
+.userMsg {
   text-align: right;
   margin: 5px 0;
   color: #007bff;
@@ -183,7 +183,6 @@ body {
   max-height: 70vh;
   height: 70vh;
   overflow-y: auto;
-  bottom: 0;
 }
 
 .chat-bubble {
@@ -269,17 +268,17 @@ body {
   .main-container {
     flex-direction: column;
   }
-  
+
   .sidebar {
     width: 100%;
     border-right: none;
     border-bottom: 1px solid #ddd;
   }
-  
+
   .toggle-menu {
     display: block;
   }
-  
+
   .nav-list {
     display: none;
     flex-direction: column;
@@ -291,11 +290,11 @@ body {
     box-shadow: var(--box-shadow);
     z-index: 100;
   }
-  
+
   .nav-list.show {
     display: flex;
   }
-  
+
   .nav-item {
     margin: 10px 0;
   }
